@@ -2,18 +2,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from connect2 import Ui_SecondWindow
 
 class Ui_MainWindow(object):
-    def open_window(self):
-        # Open second window
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_SecondWindow()
-        self.ui.setupUi(self.window)
-        self.window.show()
-
-    def clicker(self):
-        thing = self.lineEdit.text()
-        # Assign thing to second window label
-        self.ui.label.setText(thing)
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(378, 354)
@@ -48,6 +36,19 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def open_window(self):
+        # Open second window
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_SecondWindow()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def clicker(self):
+        thing = self.lineEdit.text()
+        # Assign thing to second window label        
+        self.ui = Ui_SecondWindow()
+        self.ui.label.setText(thing)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
